@@ -1,7 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import  sequelize from '../sequelize';
 import Transaction from './Transaction';
-import Balance from './balance'
+import Balance from './Balance'
 
 interface UserAttributes {
   id: number;

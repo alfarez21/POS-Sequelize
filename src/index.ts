@@ -1,5 +1,5 @@
 import sequelize from './sequelize';
-import MigrationRunner from './utilities/migrationRunner';
+import MigrationRunner from './utilities/MigrationRunner';
 
 async function main() {
   try {

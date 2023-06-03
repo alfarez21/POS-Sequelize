@@ -1,5 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import  sequelize from '../sequelize';
+import Product from './Product';
+import Inventory from './Inventory';
 
 interface IngredientAttributes {
   id: number;
@@ -48,5 +50,11 @@ Ingredient.init(
     sequelize,
   }
 );
+
+Ingredient.belongsTo(Product, { foreignKey: 'product_id' });
+Product.hasMany(Ingredient, { foreignKey: 'product_id' });
+
+Ingredient.belongsTo(Inventory, { foreignKey: 'inventory_id' });
+Inventory.hasMany(Ingredient, { foreignKey: 'inventory_id' });
 
 export default Ingredient;
