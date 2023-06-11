@@ -1,18 +1,6 @@
 import { DataTypes, Model, Optional } from 'sequelize';
+import { CouponAttributes } from '../interfaces/Coupon';
 import  sequelize from '../sequelize';
-
-interface CouponAttributes {
-  id: number;
-  code: string;
-  discount: number;
-  discount_type: 'percentage' | 'price';
-  expired_date: Date;
-  type: number;
-  minimum_purchase: number;
-  maximum_usage: number;
-  active: number;
-  deleted: boolean;
-}
 
 interface CouponCreationAttributes extends Optional<CouponAttributes, 'id'> {}
 

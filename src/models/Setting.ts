@@ -1,21 +1,7 @@
 import { DataTypes, Model, Optional } from 'sequelize';
 import  sequelize from '../sequelize';
+import { SettingAttributes } from '../interfaces/Setting';
 
-interface SettingAttributes {
-  id: number;
-  app: string;
-  store: string;
-  address_one: string;
-  address_two: string;
-  contact: string;
-  tax: string;
-  currency_symbol: string;
-  percentage: number;
-  footer: string;
-  image: string;
-  token_balance: number;
-  token_cut_balance: number;
-}
 
 interface SettingCreationAttributes extends Optional<SettingAttributes, 'id'> {}
 
@@ -98,4 +84,4 @@ Setting.init(
   }
 );
 
-export default Setting;
+export { Setting };

@@ -4,7 +4,7 @@ import Ingredient from './Ingredient';
 
 interface InventoryAttributes {
   id: number;
-  product_id: number;
+  product_id?: number;
   quantity: number;
   ingredients: boolean;
   deleted: boolean;
