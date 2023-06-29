@@ -186,3 +186,37 @@ With Pagination:
     } catch (error) {
       // handle error ...
     }
+
+#### getCustomersWithCriteriaJson()
+This method is to find customer data with certain criteria return data as json.
+
+Without pagination:
+
+    try{
+      const criteria: EditableCustomerAttributes = {
+        name: 'Roberto Carlos'
+      };
+
+      const customers = await CustomerManager.getCustomersWithCriteriaJson(criteria);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+With Pagination: 
+
+    try{
+      const criteria: EditableCustomerAttributes = {
+        name: 'Roberto Carlos'
+      };
+
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+      const customers = await CustomerManager.getCustomersWithCriteriaJson(criteria, pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
