@@ -1,4 +1,5 @@
 
+
 ## POS Sequelize 
 **POS-Sequelize** is a project to accommodate all the utilities in processing the **POS** project database.
 
@@ -116,8 +117,8 @@ Result:
 		}, 
 		uniqno: 1,
 		_changed: Set(0) {},
-	    _options: {
-		    isNewRecord: false,
+		_options: {
+			isNewRecord: false,
 	        _schema: null,
 	        _schemaDelimiter: '',
 	        raw: true,
