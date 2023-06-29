@@ -80,3 +80,46 @@ This method is to getting "Setting" data, but the result return as json
     const  settingJson = await  SettingManager.getSettingJson();
     // do some ...
 
+
+### CustomerManager
+
+#### createCustomer()
+This method is to creating a customer data.
+
+    try {
+      const createCustomerPayload: CreateCustomerPayload = {
+        name: 'Roberto Carlos',
+        phone: '081234567890',
+        email: 'robertocarlos',
+        address: 'Jl. Roberto Carlos No. 1',
+      };
+      const customer = await CustomerManager.createCustomer(createCustomerPayload);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+#### getCustomers()
+This method is to getting customers data.
+Without pagination: 
+
+    try{
+      const customers = await CustomerManager.getCustomers();
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+With pagination: 
+
+    try{
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      const customers = await CustomerManager.getCustomers(pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
