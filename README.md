@@ -101,6 +101,7 @@ This method is to creating a customer data.
 
 #### getCustomers()
 This method is to getting customers data.
+
 Without pagination: 
 
     try{
@@ -119,6 +120,68 @@ With pagination:
         pageSize: 10, // default 20
       }
       const customers = await CustomerManager.getCustomers(pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+#### getCustomersJson()
+This method is to getting customers data and return data as json.
+
+
+Without pagination: 
+
+    try{
+      const customers = await CustomerManager.getCustomersJson();
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+With pagination: 
+
+    try{
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      const customers = await CustomerManager.getCustomersJson(pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+#### getCustomersWithCriteria()
+This method is to find customer data with certain criteria.
+
+Without pagination:
+
+    try{
+      const criteria: EditableCustomerAttributes = {
+        name: 'Roberto Carlos'
+      };
+
+      const customers = await CustomerManager.getCustomersWithCriteria(criteria);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+With Pagination: 
+
+    try{
+      const criteria: EditableCustomerAttributes = {
+        name: 'Roberto Carlos'
+      };
+
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+      const customers = await CustomerManager.getCustomersWithCriteria(criteria, pagination);
       // do something ...
     } catch (error) {
       // handle error ...
