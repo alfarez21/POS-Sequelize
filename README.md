@@ -55,52 +55,52 @@ documentation on how to use the classes in the project.
 	- [getCustomersWithCriteria()](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteria)
 	- [getCustomersWithCriteriaJson()](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteriajson)
 
-### MigrationRunner
+## MigrationRunner
 
-#### migrateUp()
+### migrateUp()
 This method is to execute all migration files in the "migrations" folder.
 
     const migrationRunner = new MigrationRunner();
     await migrationRunner.migrateUp(); 
 
-#### migrateDown()
+### migrateDown()
 This method is to undo the migration action based on the files in the "migrations" folder.
 
     const migrationRunner = new MigrationRunner();
     await migrationRunner.migrateDown(); 
 
-### SeederRunner
+## SeederRunner
 
-#### runSeeders()
+### runSeeders()
 This method is to execute all seeders files in the “seeders” folder.
 
     const seederRunner = new SeederRunner();
     seederRunner.runSeeders();
 
-#### undoSeeders()
+### undoSeeders()
 This method is to undo the seed action based on the files in the "seeders" folder.
 
     const seederRunner = new SeederRunner();
     seederRunner.undoSeeders();
 
-### SettingManager
+## SettingManager
 
-#### getSetting()
+### getSetting()
 This method is to getting "Setting" data.
 
     const  setting = await  SettingManager.getSetting();
     // do some ...
 
-#### getSettingJson()
+### getSettingJson()
 This method is to getting "Setting" data, but the result return as json 
 
     const  settingJson = await  SettingManager.getSettingJson();
     // do some ...
 
 
-### CustomerManager
+## CustomerManager
 
-#### createCustomer()
+### createCustomer(payload: CreateCustomerPayload)
 This method is to creating a customer data.
 
     try {
@@ -116,7 +116,7 @@ This method is to creating a customer data.
       // handle error ...
     }
 
-#### getCustomers()
+### getCustomers(pagination?: Pagination)
 This method is to getting customers data.
 
 Without pagination: 
@@ -143,7 +143,7 @@ With pagination:
     }
 
 
-#### getCustomersJson()
+### getCustomersJson(pagination?: Pagination)
 This method is to getting customers data and return data as json.
 
 
@@ -170,7 +170,7 @@ With pagination:
       // handle error ...
     }
 
-#### getCustomersWithCriteria()
+### getCustomersWithCriteria(criteria: EditableCustomerAttributes, pagination?: Pagination)
 This method is to find customer data with certain criteria.
 
 Without pagination:
@@ -204,7 +204,7 @@ With Pagination:
       // handle error ...
     }
 
-#### getCustomersWithCriteriaJson()
+### getCustomersWithCriteriaJson(criteria: EditableCustomerAttributes, pagination?: Pagination)
 This method is to find customer data with certain criteria return data as json.
 
 Without pagination:
@@ -233,6 +233,58 @@ With Pagination:
       }
       
       const customers = await CustomerManager.getCustomersWithCriteriaJson(criteria, pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+### getCustomerById(id: number)
+This method is used to get customer data based on given id.
+
+	try{
+	  const customerId = 3;
+	  const customer = await  CustomerManager.getCustomerById(customerId);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### getCustomerByIdJson(id: number)
+This method is used to get customer data based on given id and return data as json.
+
+	try{
+	  const customerId = 3;
+	  const customer = await CustomerManager.getCustomerByIdJson(customerId);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### searchCustomers(keyword: string, pagination?: Pagination)
+This method is used to get customer data based on given keywords.
+
+Without pagination:
+
+    try{
+      const keyword = 'doe';
+      const customers = await CustomerManager.searchCustomers(keyword);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+With pagination:
+
+    try{
+      const keyword = 'doe';
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+      const customers = await CustomerManager.searchCustomers(keyword, pagination);
       // do something ...
     } catch (error) {
       // handle error ...
