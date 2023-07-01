@@ -289,3 +289,76 @@ With pagination:
     } catch (error) {
       // handle error ...
     }
+
+### searchCustomersJson(keyword: string, pagination?: Pagination)
+This method is used to get customer data based on given keywords and return data as json.
+
+Without pagination:
+
+    try{
+      const keyword = 'doe';
+      const customers = await CustomerManager.searchCustomersJson(keyword);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+
+With pagination:
+
+    try{
+      const keyword = 'doe';
+      const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+      const customers = await CustomerManager.searchCustomersJson(keyword, pagination);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+### deleteCustomerById(id: number)
+This method is to soft delete customer data based on given customer id,
+
+    try{
+      const customerId = 3;
+      const deletedCustomer = await CustomerManager.deleteCustomerById(customerId);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+### deleteMultipleCustomersByIds(id: number[])
+This method is to soft delete customer data based on given customer ids,
+
+    try{
+      const customerIds = [0, 2];
+      const deletedCustomers = await CustomerManager.deleteMultipleCustomersByIds(customerIds   );
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+### hardDeleteCustomerById(id: number)
+This method is to hard delete customer data based on given customer id,
+
+    try{
+      const customerId = 3;
+      await CustomerManager.hardDeleteCustomerById(customerId);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
+
+### hardDeleteMultipleCustomersByIds(id: number[])
+This method is to hard delete customer data based on given customer ids,
+
+    try{
+      const customerIds = [0, 2];
+      await CustomerManager.hardDeleteMultipleCustomersByIds(customerIds);
+      // do something ...
+    } catch (error) {
+      // handle error ...
+    }
