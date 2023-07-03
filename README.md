@@ -1,4 +1,5 @@
 
+
 # POS Sequelize 
 **POS-Sequelize** is a project to accommodate all the utilities in processing the **POS** project database.
 
@@ -18,7 +19,7 @@ if you want to set the dbms to use, go to "src/sequelize.ts" file, you will find
     import { Sequelize } from  'sequelize-typescript'; 
     
     const  sequelize  =  new  Sequelize({
-		// SQLite
+	// SQLite
 	    // storage: 'pos.sqlite',
 	    // dialect: 'sqlite',
     
@@ -95,6 +96,20 @@ This method is to getting "Setting" data, but the result return as json
     const  settingJson = await  SettingManager.getSettingJson();
     // do some ...
 
+### updateSetting(newData: EditableSettingAttributes)
+This method is to update some setting data.
+
+	try{
+	  const newData: EditableSettingAttributes = {
+	    app: 'Point of Sales App',
+	    contact: '+6854-0094'
+	  }
+	  
+	  const updatedSetting = await SettingManager.updateSetting(newData);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
 
 ## CustomerManager
 
@@ -360,3 +375,167 @@ This method is to hard delete customer data based on given customer ids,
     } catch (error) {
       // handle error ...
     }
+
+
+
+## TokenHistoryManager
+
+### createTokenHistory(data: CreateTokenHistoryPayload)
+This method is to creating token history data.
+
+	try{
+	  const data: CreateTokenHistoryPayload = {
+	    balance: 3000,
+	    token: 4356797784776
+	  }
+	  
+	  const newTokenHistory = await TokenHistoryManager.createTokenHistory(data);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+
+### getTokenHistories(pagination?:  Pagination)
+This method is to getting token histories data.
+
+Without pagination
+
+	try{
+	  const tokenHistories = await TokenHistoryManager.getTokenHistories();
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+With pagination
+
+	try{
+	   const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+	  const tokenHistories = await TokenHistoryManager.getTokenHistories(pagination);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+
+### getTokenHistoriesJson(pagination?:  Pagination)
+This method is to getting token histories and return data as json.
+
+Without pagination
+
+	try{
+	  const tokenHistories = await TokenHistoryManager.getTokenHistoriesJson();
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+With pagination
+
+	try{
+	  const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+      
+	  const tokenHistories = await TokenHistoryManager.getTokenHistoriesJson(pagination);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### getTokenHistoriesWithCriteria(criteria: EditableTokenHistoryAttributes, pagination?: Pagination)
+This method is to getting token histories with criteria.
+
+Without pagination:
+
+	try{
+	  const criteria: EditableTokenHistoryAttributes = {
+	    token: 4356797784776
+	  }
+	  
+	  const tokenHistories = await  TokenHistoryManager.getTokenHistoriesWithCriteria(criteria);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+With pagination:
+
+	try{
+	  const criteria: EditableTokenHistoryAttributes = {
+	    token: 4356797784776
+	  }
+	  
+	  const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+	  
+	  const tokenHistories = await  TokenHistoryManager.getTokenHistoriesWithCriteria(criteria, pagination);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### getTokenHistoriesWithCriteriaJson(criteria: EditableTokenHistoryAttributes, pagination?: Pagination)
+This method is to getting token histories with criteria and return data as json.
+
+Without pagination:
+
+	try{
+	  const criteria: EditableTokenHistoryAttributes = {
+	    token: 4356797784776
+	  }
+	  
+	  const tokenHistories = await  TokenHistoryManager.getTokenHistoriesWithCriteriaJson(criteria);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+With pagination:
+
+	try{
+	  const criteria: EditableTokenHistoryAttributes = {
+	    token: 4356797784776
+	  }
+	  
+	  const pagination: Pagination = {
+        page: 2, // default: 1
+        pageSize: 10, // default 20
+      }
+	  
+	  const tokenHistories = await TokenHistoryManager.getTokenHistoriesWithCriteriaJson(criteria, pagination);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### getTokenHistoryById(id: number)
+This method is to getting a token history based on given id.
+
+	try{
+	  const tokenHistoryId = 4;
+	  const tokenHistory = await TokenHistoryManager.getTokenHistoryById(tokenHistoryId);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
+### getTokenHistoryByIdJson(id: number)
+This method is to getting a token history based on given id.
+
+	try{
+	  const tokenHistoryId = 4;
+	  const tokenHistory = await TokenHistoryManager.getTokenHistoryByIdJson(tokenHistoryId);
+	  // do something ...
+	} catch (error) {
+	  // handle error ...
+	}
+
