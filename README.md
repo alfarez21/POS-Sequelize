@@ -1,6 +1,4 @@
 
-
-
 # POS Sequelize 
 **POS-Sequelize** is a project to accommodate all the utilities in processing the **POS** project database.
 
@@ -40,20 +38,20 @@ Configuration according to your needs. but for now we just support MySQL and SQL
 documentation on how to use the classes in the project.
 
  - [Migration Runner](https://github.com/alfarez21/POS-Sequelize#migrationrunner)
-	- [migrateUp()](https://github.com/alfarez21/POS-Sequelize#migrateup)
-	- [migrateDown()](https://github.com/alfarez21/POS-Sequelize#migratedown)
+	- [migrateUp](https://github.com/alfarez21/POS-Sequelize#migrateup)
+	- [migrateDown](https://github.com/alfarez21/POS-Sequelize#migratedown)
 - [SeederRunner](https://github.com/alfarez21/POS-Sequelize#seederrunner)
-	- [runSeeders()](https://github.com/alfarez21/POS-Sequelize#runseeders)
-	- [undoSeeders()](https://github.com/alfarez21/POS-Sequelize#undoseeders)
+	- [runSeeders](https://github.com/alfarez21/POS-Sequelize#runseeders)
+	- [undoSeeders](https://github.com/alfarez21/POS-Sequelize#undoseeders)
 - [SettingManager](https://github.com/alfarez21/POS-Sequelize#settingmanager)
-	- [getSetting()](https://github.com/alfarez21/POS-Sequelize#getsetting)
-	- [getSettingJson()](https://github.com/alfarez21/POS-Sequelize#getsettingjson)
+	- [getSetting](https://github.com/alfarez21/POS-Sequelize#getsetting)
+	- [getSettingJson](https://github.com/alfarez21/POS-Sequelize#getsettingjson)
 - [CustomerManager](https://github.com/alfarez21/POS-Sequelize#customermanager)
-	- [createCustomer()](https://github.com/alfarez21/POS-Sequelize#createcustomer)
-	- [getCustomers()](https://github.com/alfarez21/POS-Sequelize#getcustomers)
-	- [getCustomersJson()](https://github.com/alfarez21/POS-Sequelize#getcustomersjson)
-	- [getCustomersWithCriteria()](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteria)
-	- [getCustomersWithCriteriaJson()](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteriajson)
+	- [createCustomer](https://github.com/alfarez21/POS-Sequelize#createcustomerpayload-createcustomerpayload)
+	- [getCustomers](https://github.com/alfarez21/POS-Sequelize#getcustomerspagination-pagination)
+	- [getCustomersJson](https://github.com/alfarez21/POS-Sequelize#getcustomersjsonpagination-pagination)
+	- [getCustomersWithCriteria](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteriacriteria-editablecustomerattributes-pagination-pagination)
+	- [getCustomersWithCriteriaJson](https://github.com/alfarez21/POS-Sequelize#getcustomerswithcriteriajsoncriteria-editablecustomerattributes-pagination-pagination)
 
 ## MigrationRunner
 
